@@ -3139,14 +3139,17 @@ div#tooltip {
 
 .online{
   background-color: #84ce84;
+  color: #FFF;
 }
 
 .expired{
   background-color: #d97572;
+  color: #FFF;
 }
 
 .extended{
   background-color: #e8b976;
+  color: #FFF;
 }
 
 .offline{

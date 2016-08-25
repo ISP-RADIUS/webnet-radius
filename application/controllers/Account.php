@@ -7,6 +7,25 @@ class Account extends CI_Controller {
 	{
 		parent::__construct();
 		//Load Dependencies
+		$username =  $this->uri->segment(2);
+		if(isset($username)):
+			$this->account = $this->account_m->get_by(array('username'=>$username));
+			$this->account->status	=	$this->status($username);
+			$this->account->speed	=	$this->speed($username);
+			$this->account->last_active	=	$this->last_active_session($username);
+			
+
+
+
+			// echo json_encode($this->account);
+
+			// die();
+
+			
+		else:
+			$this->account = "";
+		endif;
+	
 
 
 	}
@@ -56,7 +75,10 @@ class Account extends CI_Controller {
 
 		$data = array(
 					'subview'	=>	'account/settings',
+					'account'	=>	$this->account,
 			);
+
+		
 
 		$this->load->view('admin/layout', $data);
 
@@ -67,8 +89,7 @@ class Account extends CI_Controller {
 		if($username):
 			if($this->is_expired($username)):
 				return "expired";
-			elseif ($this->is_active($username)):
-				return "active";
+			
 			elseif($this->has_active_session($username)):
 				return "online";
 			else:
@@ -117,6 +138,45 @@ class Account extends CI_Controller {
 		endif;
 	
 	}
+
+	public function speed($username = NULL)
+	{
+		if($username):
+			$speed =  $this->radreply_m->get_by(array('attribute'=>'Mikrotik-Rate-Limit', 'username'=>$username));
+			switch ($speed->value) {
+				case '284k/284k':
+					return "256 kbps";
+					break;
+
+				case '512k/512k':
+					return "512 kbps";
+					break;
+
+				case '1M/1M':
+					return "1 mbps";
+					break;
+				
+				default:
+					return FALSE;
+					break;
+			}
+		endif;
+		
+	}
+
+	public function last_active_session($username = NULL)
+	{
+		if($username):
+			// All sessions for this month
+			$this->db->order_by("AcctStopTime", "desc");
+			$this->db->limit('1');
+			return $this->radacct_m->get_by(array('username'=>$username));
+		endif;
+		
+	}
+
+
+
 }
 
 /* End of file Account.php */

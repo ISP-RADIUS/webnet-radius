@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         
         <title>ArkAdmin Theme</title>
-        <link rel="shortcut icon" href="/<?php echo base_url(); ?>img/ico/favicon.png" />
+        <link rel="shortcut icon" href="<?php echo base_url(); ?>img/logo/favicon_32x32.png" />
         
         <!-- CSS -->
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" type="text/css" />
@@ -33,6 +33,9 @@
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
+
+        <script src="<?php echo base_url(); ?>scripts/vendor/jquery/dist/jquery.min.js"></script>
+
     </head>
     
     <body class="cover">
