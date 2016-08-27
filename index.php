@@ -53,7 +53,22 @@
  *
  * NOTE: If you change these, also change the error_reporting() code below
  */
-	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
+	// define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
+
+switch(dirname( __FILE__ )){
+	case '/var/www/html/new':
+		define ('ENVIRONMENT', 'production');
+		break;
+	case 'C:\xampp\htdocs\radius\new':
+		define ('ENVIRONMENT', 'development');
+		break;
+	case '/Applications/XAMPP/xamppfiles/htdocs/webnet/webnet-radius':
+		define ('ENVIRONMENT', 'development');
+		break;
+	default:
+		define ('ENVIRONMENT', 'development');
+		break;
+}
 
 /*
  *---------------------------------------------------------------
