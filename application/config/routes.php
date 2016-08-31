@@ -58,3 +58,7 @@ $route['translate_uri_dashes'] = FALSE;
 $route['account/(:any)'] = 'account/index/$1';
 $route['account/(:any)/settings'] = 'account/settings/$1';
 $route['account/(:any)/status'] = 'account/status/$1';
+
+
+$route['billing/(:any)'] = 'billing/index/$1';
+$route['billing/(:any)/add_sale'] = 'billing/add_sale/$1';

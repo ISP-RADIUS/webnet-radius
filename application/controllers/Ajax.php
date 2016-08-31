@@ -46,6 +46,22 @@ class Ajax extends CI_Controller {
 
 	}
 
+	public function calculate_price()
+	{
+		$sale_of = $this->input->post('sale_of');
+		$username = $this->input->post('username');
+		switch ($sale_of) {
+			case 'internet':
+				if($username):
+					//$plan_price = $this->pricing_m->get_by();
+				break;
+			
+			default:
+				# code...
+				break;
+		}
+	}
+
 }
 
 /* End of file Ajax.php */
