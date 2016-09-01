@@ -57,7 +57,6 @@ class Ajax extends CI_Controller {
 			case 'internet':
 				if($username):
 					
-					$this->load->view('admin/ajax/sale_of_internet', $data, TRUE);
 
 
 				endif;

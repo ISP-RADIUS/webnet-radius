@@ -33,7 +33,31 @@
                                 
                             </div>
 
-                            
+                            <div class="form-group no_of_months">
+                                <label for="inputEmail3" class="col-sm-2 control-label">Plan</label>
+                                <div class="col-sm-6">
+                                    <select name="" id="" class="form-control ">
+                                        <option value="" disabled selected> Plan</option>
+                                        <option value="internet">Night 1</option>
+                                        <option value="device_sale">Unlimited 256</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group no_of_months">
+                                <label for="inputEmail3" class="col-sm-2 control-label">Months</label>
+                                <div class="col-sm-6">
+                                    <input type="number" class="form-control" id="" placeholder="">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label">Sale of</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control price" id="" placeholder="Password">
+                                </div>
+                               
+                            </div>
                            
                             
                         </form>
@@ -80,7 +104,7 @@
 
 
 
-                $(".ajax_form_load").val(result);
+                $(".price").val(result);
 
 
                
