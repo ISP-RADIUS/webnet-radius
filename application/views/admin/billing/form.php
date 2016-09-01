@@ -21,14 +21,19 @@
                                 <div class="col-sm-6">
                                     <input type="hidden" class="username" value="">
                                     <select name="" id="" class="form-control sale_of">
+                                        <option value="" disabled selected> Sale For</option>
                                         <option value="internet">Internet</option>
                                         <option value="device_sale">Device Sale</option>
                                     </select>
                                 </div>
-
-                                <div class="col-sm-4">
-                                </div>
+                               
                             </div>
+
+                            <div class="ajax_form_load">
+                                
+                            </div>
+
+                            
                            
                             
                         </form>
@@ -36,24 +41,7 @@
                         
                     </div>
 
-                    <div class="panel-body">
-                        <form class="form-horizontal" role="form">
-                            <div class="form-group">
-                                <label for="inputEmail3" class="col-sm-2 control-label">Sale of</label>
-                                <div class="col-sm-6">
-                                    <input type="hidden" class="username" value="">
-                                    <input type="text" class="form-control price" id="" placeholder="Password">
-                                </div>
-                                <div class="col-sm-4">
-                                    <button class="btn btn-primary ark-ex-loading change_password" data-loading-text="Saving...">Save</button>
-                                </div>
-                            </div>
-                           
-                            
-                        </form>
-
-                        
-                    </div>
+                   
                 </div>
             </div>
             
@@ -76,13 +64,13 @@
 <script>
     $(document).ready(function(){
 
-      
+        $(".no_of_months").hide();
 
         $(".sale_of").change(function(){
            var sale_of = $(".sale_of").val();
            if(sale_of=='internet')
            {
-            alert('p');
+            $(".no_of_months").show();
            }
             $.ajax({type: "POST",
                     url: "<?php echo base_url(); ?>ajax/calculate_price",
@@ -92,7 +80,7 @@
 
 
 
-                $(".price").val(result);
+                $(".ajax_form_load").val(result);
 
 
                

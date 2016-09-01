@@ -48,12 +48,19 @@ class Ajax extends CI_Controller {
 
 	public function calculate_price()
 	{
+
+		
+
 		$sale_of = $this->input->post('sale_of');
 		$username = $this->input->post('username');
 		switch ($sale_of) {
 			case 'internet':
 				if($username):
-					//$plan_price = $this->pricing_m->get_by();
+					
+					$this->load->view('admin/ajax/sale_of_internet', $data, TRUE);
+
+
+				endif;
 				break;
 			
 			default:
