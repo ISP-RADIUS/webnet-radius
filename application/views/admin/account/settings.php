@@ -72,6 +72,42 @@
             
         </div>
 
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel ">
+                    <div class="panel-heading">
+                        <div class="panel-actions">
+                            
+                        </div>
+                        <h3 class="panel-title">Plan</h3>
+                    </div>
+
+                    <div class="panel-body">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label">Plan</label>
+                                <div class="col-sm-6">
+                                    <select class="form-control mac" name="" id="">
+                                        <option value="1">256kbps</option>
+                                        <option value="0">512kbps</option>
+                                    </select>
+                                    <span class="small last_updated_mac"> <i class="fa fa-clock-o" style="color:#999;"></i> Last updated <span class="updated_time_mac">10 days ago</span></span> 
+                                </div>
+                                <div class="col-sm-4">
+                                    <button class="btn btn-primary ark-ex-loading change_mac" data-loading-text="Saving...">Save</button>
+                                </div>
+                            </div>
+                            
+                        </form>
+
+                        
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+
 
       
 

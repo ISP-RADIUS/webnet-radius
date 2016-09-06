@@ -47,6 +47,23 @@ class Account extends CI_Controller {
 			/*
 				List all users
 			*/
+			$accounts = $this->account_m->get_all();
+			foreach ($accounts as $account):
+				$account->status	=	$this->status($account->username);
+			endforeach;
+
+			
+
+
+			$data = array(
+					'subview'	=>	'account/all',
+					'sidebar'	=>	FALSE,
+					'accounts'	=>	$accounts,
+			);
+
+		
+
+			$this->load->view('admin/layout', $data);
 
 		endif;
 	}

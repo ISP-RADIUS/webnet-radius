@@ -89,7 +89,7 @@ $autoload['drivers'] = array();
 |
 |	$autoload['helper'] = array('url', 'file');
 */
-$autoload['helper'] = array('url');
+$autoload['helper'] = array('url','account_helper');
 
 /*
 | -------------------------------------------------------------------
@@ -139,5 +139,7 @@ $autoload['model'] = array( 'radacct_m',
 							'radreply_m',
 							'radusergroup_m',
 							'account_m',
-							'user_m'
+							'user_m',
+							'transaction_m',
+							'payment_m'
 					);
