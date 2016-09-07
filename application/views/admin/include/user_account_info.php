@@ -7,14 +7,16 @@
                     <div class="user-info">
                         <div class="header">
                             <div class="col-md-12">
-                                <h4 class="header-title">test1 </h4>
+                                <h4 class="header-title"><?php echo $account->username; ?> </h4>
                                 <p class="header-info">
                                     <?php echo $account->speed; ?> 
-                                    / 20 GB Disk / 
-                                    Last Online 
+                                    / 
+                                    
                                     <?php
-                                        if($account->status=='offline' || $account->status == "expired"):
-                                            echo $account->last_active->acctstoptime; 
+                                        if(!$account->session->current):
+                                            echo "Last Online : " . $account->session->last->acctstoptime; 
+                                        elseif($account->session->current):
+                                            echo "Online since: " . $account->session->current->acctatarttime;
                                         endif;
                                     ?>
                                 </p>
@@ -32,9 +34,9 @@
 
                 <div class="container bordered">
                     <div class="tech-info">
-                        <div class="info-box"><strong>Public IP:</strong> 103.23.12.25</div>
-                        <div class="info-box"><strong>Device MAC:</strong> 103.23.12.25</div>
-                        <div class="info-box"><strong>Device IP:</strong> 103.23.12.25</div>
+                        <div class="info-box"><strong>Public IP:</strong> <?php echo $account->public_ip; ?></div>
+                        <div class="info-box"><strong>Device MAC:</strong> <?php echo $account->mac_address; ?></div>
+                        <div class="info-box"><strong>Device IP:</strong> <a  target="_blank" href="https://<?php echo $account->client_ip; ?>"><?php echo $account->client_ip; ?> <i class="fa fa-external-link"></i> </a></div>
                     </div>
 
                 </div>

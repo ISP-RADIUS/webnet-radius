@@ -16,10 +16,11 @@ class Ajax extends CI_Controller {
 		// $password = 'dsgas';
 
 		// Validation to be done later
-		$radcheck = $this->radcheck_m->get_by(array('username'=>$username));
+		$radcheck = $this->radcheck_m->get_by(array('username'=>$username,'attribute'=>'Crypt-Password'));
 
     	if($this->radcheck_m->update($radcheck->id, array('value'=> crypt(time(), $password)))):
-		echo date('M d, Y \a\t h:m a');
+			echo date('M d, Y \a\t h:m a');
+			//$this->change_log('password',$username, $radcheck->value, $password);
 		else:
 			echo FALSE;
 		endif;
@@ -32,18 +33,51 @@ class Ajax extends CI_Controller {
 		$username = $this->input->post('username');
 		$mac = $this->input->post('mac');
 		// $username ='prakashchhetri';
-		// $password = 'dsgas';
+		// $mac = 'dsgas';
 
 		// Validation to be done later
-		$radcheck = $this->radcheck_m->get_by(array('username'=>$username));
+		$radcheck = $this->radcheck_m->get_by(array('username'=>$username,'attribute'=>'Calling-Station-Id'));
 
     	if($this->radcheck_m->update($radcheck->id, array('usemac'=> $mac))):
-		echo date('M d, Y \a\t h:m a');
+			echo date('M d, Y \a\t h:m a');
+			//$this->change_log('mac',$username,$mac);
 		else:
 			echo FALSE;
 		endif;
 
 
+	}
+
+	public function change_speed()
+	{
+		$username = $this->input->post('username');
+		$speed = $this->input->post('speed');
+		// $username ='prakashchhetri';
+		// $speed = '284k/284k';
+
+		// Validation to be done later
+		$radreply = $this->radreply_m->get_by(array('username'=>$username,'attribute'=>'Mikrotik-Rate-Limit'));
+
+    	if($this->radreply_m->update($radreply->id, array('value'=> $speed))):
+			echo date('M d, Y \a\t h:m a');
+			$this->change_log('speed',$username, $radreply->value, $speed);
+		else:
+			echo FALSE;
+		endif;
+
+
+	}
+
+	public function change_log($attribute, $username, $old_value, $new_value)
+	{
+		$data = array(
+				'changed_by'	=>	$this->session->userdata('user_id'),
+				'username'		=>	$username,
+				'attribute'		=>	$attribute,
+				'old_value'		=>	$old_value,
+				'new_value'		=>	$new_value
+			);
+		$this->changelog_m->insert($data);
 	}
 
 	public function calculate_price()
@@ -73,6 +107,10 @@ class Ajax extends CI_Controller {
 		$status = $this->input->post('status');
 		// $status = 'extended';
 		switch ($status) {
+			case 'all':
+				$accounts = $this->account_m->get_all();
+				
+				break;
 			case 'online':
 				$accounts = $this->radacct_m->get_many_by(array('AcctStopTime'=>NULL));
 				

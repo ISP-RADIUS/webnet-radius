@@ -141,5 +141,6 @@ $autoload['model'] = array( 'radacct_m',
 							'account_m',
 							'user_m',
 							'transaction_m',
-							'payment_m'
+							'payment_m',
+							'changelog_m'
 					);

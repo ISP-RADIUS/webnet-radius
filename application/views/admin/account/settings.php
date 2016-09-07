@@ -87,14 +87,15 @@
                             <div class="form-group">
                                 <label for="inputEmail3" class="col-sm-2 control-label">Plan</label>
                                 <div class="col-sm-6">
-                                    <select class="form-control mac" name="" id="">
-                                        <option value="1">256kbps</option>
-                                        <option value="0">512kbps</option>
+                                    <select class="form-control speed" name="speed" id="">
+                                        <option value="284k/284k">256 kbps</option>
+                                        <option value="512k/512k">512 kbps</option>
+                                        <option value="1024k/1024k">1 mbps</option>
                                     </select>
-                                    <span class="small last_updated_mac"> <i class="fa fa-clock-o" style="color:#999;"></i> Last updated <span class="updated_time_mac">10 days ago</span></span> 
+                                    <span class="small last_updated_speed"> <i class="fa fa-clock-o" style="color:#999;"></i> Last updated <span class="updated_time_speed">10 days ago</span></span> 
                                 </div>
                                 <div class="col-sm-4">
-                                    <button class="btn btn-primary ark-ex-loading change_mac" data-loading-text="Saving...">Save</button>
+                                    <button class="btn btn-primary ark-ex-loading change_speed" data-loading-text="Saving...">Save</button>
                                 </div>
                             </div>
                             
@@ -153,6 +154,25 @@
               $(".updated_time_mac").html(result);
 
               $( ".last_updated_mac" )
+                .css("background-color", "#84ce84")
+                .animate({
+                    backgroundColor: "FFF",
+                  }, 5000, function() {
+                    // Animation complete.
+                });
+
+            }});
+        });
+
+        $(".change_speed").click(function(e){
+            e.preventDefault();
+            $.ajax({type: "POST",
+                    url: "<?php echo base_url(); ?>ajax/change_speed",
+                    data: { username: $(".username").val(), speed: $(".speed").val() },
+                    success:function(result){
+              $(".updated_time_speed").html(result);
+
+              $( ".last_updated_speed" )
                 .css("background-color", "#84ce84")
                 .animate({
                     backgroundColor: "FFF",

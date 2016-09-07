@@ -7,7 +7,6 @@
 ?>
 
 <?php 
-	if($sidebar!=FALSE)
 	$this->load->view('admin/include/side_nav'); 
 ?>
 

@@ -60,7 +60,7 @@
                     </li>
 
                     <li class="">
-                        <a href="#" class="" data-toggle="collapse" data-target=".sidebar">
+                        <a href="<?php echo base_url(); ?>account" class="" data-toggle="collapse" data-target=".sidebar">
                             Accounts
                         </a>
                     </li>

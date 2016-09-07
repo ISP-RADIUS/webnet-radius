@@ -31,11 +31,14 @@
     <!-- CONTENT -->
     <div class="main-content">
 
+       
+
         <div class="row">
             <div class="col-md-12">
                 <form action="">
                     <label for="">Account Status</label>
                     <select name="" id="account_status">
+                        <option value="all">All</option>
                         <option value="expired">Expired</option>
                         <option value="online">Online</option>
                         <option value="offline">Offline</option>
@@ -43,11 +46,9 @@
                     </select>
                 </form>
             </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-12">
-                <table class="table table-striped table-hover " id="accounts">
+            
+            <div class="col-md-12" id="accounts">
+                <table class="table table-striped table-hover " >
                         <thead>
                             <tr>
                                 <th>Username</th>

@@ -1,5 +1,7 @@
-<table class="table table-striped table-hover " id="accounts">
-	<tr>count : <?php echo count($accounts); ?></tr>
+<div class="" id="accounts">
+<tr>count : <?php echo count($accounts); ?></tr>
+<table class="table table-striped table-hover " >
+	
     <thead>
 
         <tr>
@@ -36,3 +38,4 @@
       
     </tbody>
 </table>
+</div>
