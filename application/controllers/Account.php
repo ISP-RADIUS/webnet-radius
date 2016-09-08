@@ -8,19 +8,16 @@ class Account extends CI_Controller {
 		parent::__construct();
 		//Load Dependencies
 		$username =  $this->uri->segment(2);
-		if(isset($username)):
+		$account = $this->account_m->get_by(array('username'=>$username));
+		if($account && isset($username)):
 			$this->account 							= 	$this->account_m->get_by(array('username'=>$username));
 			$this->account->status					=	$this->status($username);
 			$this->account->speed					=	$this->speed($username);
 			$this->account->client_ip 				= 	$this->get_client_ip($username);
 			$this->account->public_ip 				= 	$this->get_public_ip($username);
-			$this->account->mac_address 					= 	$this->get_mac_address($username);
+			$this->account->mac_address 			= 	$this->get_mac_address($username);
 			
 			$this->account->user 					= 	$this->user_m->get_by(array('username'=>$username));
-
-			
-			
-
 
 			$this->account->session = (object)[];
 			$this->account->session->current		=	$this->has_active_session($username);
@@ -49,9 +46,13 @@ class Account extends CI_Controller {
 		echo json_encode($this->account);
 	}
 
+
+
 	// List all your items
 	public function index( $username = NULL )
 	{
+
+		
 		if($username):
 			$account = $this->account_m->get_by(array('username'=>$username));
 			if(isset($account)):
@@ -93,6 +94,50 @@ class Account extends CI_Controller {
 			$this->load->view('admin/layout', $data);
 
 		endif;
+	}
+
+
+	public function search(){
+		// get the search query
+		$q = $this->input->get('q');
+
+		// search usernames, names, phone no, address etc
+		$users = $this->user_m->search($q);
+
+		if(count($users)==1):
+			//  if only one result is found, redirect to the user matching the search query
+			redirect(base_url().'account/'.$users[0]->username );
+		endif;
+
+		// if more than one user are found, show the list of users
+		echo "<pre>";
+		
+		
+		foreach ($users as $user):
+			$accounts[] = $this->account_m->get_by(array('username'=>$user->username));
+			
+		endforeach;
+
+		$accounts = (object) $accounts;
+
+		foreach ($accounts as $account) {
+			$account->status = $this->status($account->username);
+			// var_dump($account); # code...
+		}
+		
+		
+		
+
+		
+		$data = array(
+			'subview'=> 'account/all',
+			'accounts'=>$accounts
+			);
+
+		
+
+		$this->load->view('admin/layout', $data);
+
 	}
 
 	// Add a new item
@@ -140,6 +185,8 @@ class Account extends CI_Controller {
 				return "offline";
 			endif;
 
+		else:
+			return FALSE;
 		endif;
 	}
 

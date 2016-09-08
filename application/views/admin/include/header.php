@@ -54,7 +54,7 @@
 
                 <ul class="nav navbar-nav navbar-left main-nav">
                     <li class="">
-                        <a href="#" class="" data-toggle="collapse" data-target=".sidebar">
+                        <a href="<?php echo base_url(); ?>" class="" data-toggle="collapse" data-target=".sidebar">
                             Dashboard
                         </a>
                     </li>

@@ -12,9 +12,9 @@
             </div>
 
             <div class="col-md-6">
-                <form  class="form-horizontal" role="form" style="padding:15px;">
+                <form  class="form-horizontal" action="<?php echo base_url(); ?>account/search" method="GET" role="form" style="padding:15px;">
                     <div class="form-group" style="margin-bottom:0px;">
-                            <input type="text"  class="form-control" style="height: 49px;" placeholder="Search Account">
+                            <input type="text" name="q"  class="form-control" style="height: 49px;" placeholder="Search Account">
                             <span id="filter-count"></span>
                       
                     </div>
@@ -61,6 +61,7 @@
                         </thead>
                         <tbody >
                             <?php
+                                if(!empty($accounts)):
                                 foreach ($accounts as $account):
                             ?>
                                 <tr>
@@ -78,6 +79,7 @@
                                 </tr>
                             <?php
                                 endforeach; 
+                                endif;
                             ?>
 
                           
