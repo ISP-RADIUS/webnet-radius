@@ -27,7 +27,7 @@
         <script src="<?php echo base_url(); ?>scripts/vendor/ckeditor/ckeditor.js"></script>
         <!-- <script src="https://google-code-prettify.googlecode.com/svn/loader/prettify.js"></script> -->
         <!-- <script src="https://maps.googleapis.com/maps/api/js"></script> -->
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.10/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.10/js/jquery.dataTables.min.js"></script>
         <script src="<?php echo base_url(); ?>scripts/js/ark.min.js"></script>
 
       

@@ -8,7 +8,7 @@
         <link rel="shortcut icon" href="<?php echo base_url(); ?>img/logo/favicon_32x32.png" />
         
         <!-- CSS -->
-        <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url(); ?>scripts/vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
         <link href="<?php echo base_url(); ?>scripts/vendor/jasny-bootstrap/dist/css/jasny-bootstrap.min.css" rel="stylesheet" />
         <!--<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />-->
@@ -21,7 +21,7 @@
         <link href="<?php echo base_url(); ?>scripts/css/prettify.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url(); ?>scripts/vendor/fullcalendar/dist/fullcalendar.css" rel="stylesheet" />
         <link href="<?php echo base_url(); ?>scripts/vendor/fullcalendar/dist/fullcalendar.print.css" rel="stylesheet" media="print" />
-        <link href="http://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.10/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.10/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url(); ?>scripts/css/ark.css" rel="stylesheet" type="text/css" />
 
         <!-- Remove this line on production-->
