@@ -16,7 +16,7 @@
                                         if(!$account->session->current):
                                             echo "Last Online : " . $account->session->last->acctstoptime; 
                                         elseif($account->session->current):
-                                            echo "Online since: " . $account->session->current->acctatarttime;
+                                            echo "Online since: " . $account->session->current->acctsatarttime;
                                         endif;
                                     ?>
                                 </p>
