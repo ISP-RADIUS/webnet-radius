@@ -7,6 +7,10 @@ class Account extends CI_Controller {
 	{
 		parent::__construct();
 		//Load Dependencies
+
+		if (!$this->ion_auth->logged_in()) redirect('auth/login', 'refresh');
+
+
 		$username =  $this->uri->segment(2);
 		$account = $this->account_m->get_by(array('username'=>$username));
 		if($account && isset($username)):

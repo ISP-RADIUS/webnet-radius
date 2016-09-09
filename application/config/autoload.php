@@ -58,7 +58,7 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array('database','session','accounts');
+$autoload['libraries'] = array('database','session','accounts','ion_auth');
 
 /*
 | -------------------------------------------------------------------
@@ -144,5 +144,6 @@ $autoload['model'] = array( 'radacct_m',
 							'payment_m',
 							'changelog_m',
 							'notification_m',
-							'admin_m'
+							'admin_m',
+							'ion_auth_model'
 					);
