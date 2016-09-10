@@ -7,7 +7,7 @@
 
     		
             <div class="col-md-12">
-                <h3>Session Usage</h3>
+                <h3>Sessions</h3>
 
                 <input type="hidden" class="username" value="<?php echo $account->username; ?>" name="">
 		        <div class="sample">
@@ -18,7 +18,7 @@
 		                        <span>This month</span> <b class="caret"></b>
 		                    </div>
 		                </div>
-		                <h3 class="panel-title">Conversions</h3>
+		                <h3 class="panel-title">Usage</h3>
 		            </div>
 		        </div>
 
@@ -78,6 +78,8 @@
 
 <script>
 	$(document).ready(function() {
+
+        $("#myTable").tablesorter(); 
 
 		$(".datepicker").datepicker({
             autoclose: !0
