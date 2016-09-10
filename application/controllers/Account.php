@@ -347,6 +347,7 @@ class Account extends CI_Controller {
 	
 
 		$from = date('Y-m-1');
+		$from = date('2016-3-1');
 		$till = date('Y-m-t');
 		$query = $this->db->query("SELECT MIN(RadAcctId) AS RadAcctId, DATE(AcctStartTime) AS 'date', username as 'username',  SUM(AcctInputOctets) AS upload, SUM(AcctOutputOctets) AS download FROM radacct WHERE username = '$username' AND AcctStartTime BETWEEN '$from' AND '$till'   GROUP BY DATE(AcctStartTime)");
 		$sessions = $query->result_object();
