@@ -56,6 +56,7 @@ $route['translate_uri_dashes'] = FALSE;
 
 
 $route['account/search'] = 'account/search';
+$route['account/sessions'] = 'account/sessions';
 $route['account/(:any)'] = 'account/index/$1';
 $route['account/(:any)/json'] = 'account/json/$1';
 $route['account/(:any)/settings'] = 'account/settings/$1';

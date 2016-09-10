@@ -65,6 +65,10 @@ class Account extends CI_Controller {
 			$account->status = $this->status($username);
 
 
+			$this->account->sessions = $this->sessions($username);
+
+			
+
 			$data = array(
 					'subview'	=>	'account/dashboard',
 					'account'	=>	$this->account,
@@ -335,6 +339,55 @@ class Account extends CI_Controller {
 		endif;
 
 		
+	}
+
+	public function sessions($username = NULL)
+	{
+		
+	
+
+		$from = date('Y-m-1');
+		$till = date('Y-m-t');
+		$query = $this->db->query("SELECT MIN(RadAcctId) AS RadAcctId, DATE(AcctStartTime) AS 'date', username as 'username',  SUM(AcctInputOctets) AS upload, SUM(AcctOutputOctets) AS download FROM radacct WHERE username = '$username' AND AcctStartTime BETWEEN '$from' AND '$till'   GROUP BY DATE(AcctStartTime)");
+		$sessions = $query->result_object();
+
+		foreach ($sessions as $session) {
+			$session->download = $this->formatSizeUnits($session->download);
+			$session->upload = $this->formatSizeUnits($session->upload);
+		}
+
+		// echo json_encode($sessions);
+		return $sessions;
+	}
+
+	function formatSizeUnits($bytes)
+    {
+	        if ($bytes >= 1073741824)
+	        {
+	            $bytes = number_format($bytes / 1073741824, 2) . ' GB';
+	        }
+	        elseif ($bytes >= 1048576)
+	        {
+	            $bytes = number_format($bytes / 1048576, 2) . ' MB';
+	        }
+	        elseif ($bytes >= 1024)
+	        {
+	            $bytes = number_format($bytes / 1024, 2) . ' kB';
+	        }
+	        elseif ($bytes > 1)
+	        {
+	            $bytes = $bytes . ' bytes';
+	        }
+	        elseif ($bytes == 1)
+	        {
+	            $bytes = $bytes . ' byte';
+	        }
+	        else
+	        {
+	            $bytes = '0 bytes';
+	        }
+
+	        return $bytes;
 	}
 
 
