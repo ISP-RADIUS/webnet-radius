@@ -56,12 +56,13 @@ $route['translate_uri_dashes'] = FALSE;
 
 
 $route['account/search'] = 'account/search';
-$route['account/sessions'] = 'account/sessions';
 $route['account/(:any)'] = 'account/index/$1';
 $route['account/(:any)/json'] = 'account/json/$1';
 $route['account/(:any)/settings'] = 'account/settings/$1';
 $route['account/(:any)/notifications'] = 'account/notifications/$1';
 $route['account/(:any)/notifications/(:any)'] = 'account/notifications/$1/$2';
+$route['account/(:any)/sessions'] = 'account/sessions/$1';
+
 $route['account/(:any)/status'] = 'account/status/$1';
 
 

@@ -14,7 +14,7 @@ if(($menu=="accounts" || $menu == "account") && isset($account)):
 
         <li <?php if($active == 'dashboard') echo $active_class; ?> ><a href="<?php echo base_url(); ?>account/<?php echo $account->username; ?>"> <i class="fa fa-dashboard fa-fw"> </i> <span class="item-label">Dashboard</span></a></li>
         <li <?php if($active == 'user') echo $active_class; ?> ><a href="#"> <i class="fa fa-user fa-fw"> </i> <span class="item-label">User</span></a></li>
-        <li <?php if($active == 'sessions') echo $active_class; ?> ><a href="#"> <i class="fa fa-database fa-fw"> </i> <span class="item-label">Sessions</span></a></li>
+        <li <?php if($active == 'sessions') echo $active_class; ?> ><a href="<?php echo base_url(); ?>account/<?php echo $account->username; ?>/sessions"> <i class="fa fa-database fa-fw"> </i> <span class="item-label">Sessions</span></a></li>
         <li <?php if($active == 'payments') echo $active_class; ?> ><a href="#"> <i class="fa fa-inr fa-fw"> </i> <span class="item-label">Payments</span></a></li>
         <li <?php if($active == 'notifications') echo $active_class; ?> ><a href="<?php echo base_url(); ?>account/<?php echo $account->username; ?>/notifications"> <i class="fa fa-bell fa-fw"> </i> <span class="item-label">Notifications</span></a></li>
         
