@@ -14,9 +14,9 @@
                                     
                                     <?php
                                         if(!$account->session->current):
-                                            echo "Last Online : " . $account->session->last->AcctStartTime; 
+                                            echo "Last Online : " . $account->session->last->AcctStopTime; 
                                         elseif($account->session->current):
-                                            echo "Online since: " . $account->session->current->AcctStopTime;
+                                            echo "Online since: " . $account->session->current->AcctStartTime;
                                         endif;
                                     ?>
                                 </p>
