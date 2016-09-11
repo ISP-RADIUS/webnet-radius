@@ -187,14 +187,16 @@
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle avatar pull-right" data-toggle="dropdown">
-                            <img src="<?php echo base_url(); ?>img/users/mike.jpg" alt="mike" class="img-avatar" />
-                            <span class="hidden-small">Mike Smith<b class="caret"></b></span>
+                            <img src="<?php echo base_url(); ?>img/users/blank.jpg" alt="mike" class="img-avatar" />
+                            <span class="hidden-small">
+                            <?php echo $this->session->userdata('email'); ?>
+                            <b class="caret"></b></span>
                         </a>
                         <ul class="dropdown-menu pull-right">
                             <li><a href="#"><i class="fa fa-gear"></i>Account Settings</a></li>
                             <li><a href="profile.html"><i class="fa fa-user"></i>View Profile</a></li>
                             <li class="divider"></li>
-                            <li><a href="login.html"><i class="fa fa-sign-out"></i>Logout</a></li>
+                            <li><a href="<?php echo base_url(); ?>auth/logout"><i class="fa fa-sign-out"></i>Logout</a></li>
                         </ul>
                     </li>
                 </ul>

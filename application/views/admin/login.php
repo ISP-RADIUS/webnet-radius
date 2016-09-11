@@ -33,32 +33,31 @@
         
 <div class="login-wrap">
     <span class="brand">
-        <img src="<?php echo base_url(); ?>img/logo/default_90x32.png" alt="Ark">
+        <img src="img/logo/default_90x32.png" alt="Ark">
     </span>
     <div class="panel">
         <div class="panel-heading">
             <h3 class="panel-title">Sign In</h3>
         </div>
         <div class="panel-body">
-            <div id="infoMessage"><?php echo $message;?></div>
-
-            <form action="<?php echo base_url(); ?>auth/login" method="POST">
+            <form action="index.html">
                 <div class="form-group">
-                    <input type="email" class="form-control" name="identity" id="exampleInputEmail1" placeholder="Enter email">
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password">
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                 </div>
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox" name="remember"> Remember me for 2 weeks
+                        <input type="checkbox"> Remember me for 2 weeks
                     </label>
                 </div>
                 <button type="submit" class="btn btn-primary">Login</button>
                 <br/>
                 <br/>
 
-                <a href="mailto:sohanmax02@gmail.com">Forgot password?</a><br/>
+                <a href="forgot.html">Forgot password?</a><br/>
+                Don't have an account yet? <a href="register.html">Sign Up!</a>
             </form>
         </div>
     </div>
@@ -98,4 +97,3 @@
         </script>
     </body>
 </html>
-
