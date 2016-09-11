@@ -13,12 +13,14 @@
                                     / 
                                     
                                     <?php
-                                        if($account->session->last):
-                                            echo "Last Online : " . $account->session->last->AcctStopTime; 
+                                        if(!$account->session->current):
+                                            if(!$account->session->last):
+                                                echo "N/A";
+                                            else:
+                                                echo "Last Online : " . $account->session->last->AcctStopTime; 
+                                            endif;
                                         elseif($account->session->current):
                                             echo "Online since: " . $account->session->current->AcctStartTime;
-                                        else:
-                                            echo "N/A";
                                         endif;
                                     ?>
                                 </p>
