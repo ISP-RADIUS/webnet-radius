@@ -192,8 +192,7 @@ class Account extends CI_Controller {
 	public function payments($username = NULL)
 	{
 
-		echo json_encode($this->accounts->expiring_in(2));
-		die();
+		
 
 		$payments = $this->payment_m->get_many_by(array('username'=>$username));
 
