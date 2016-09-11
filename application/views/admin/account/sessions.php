@@ -79,7 +79,6 @@
 <script>
 	$(document).ready(function() {
 
-        $("#myTable").tablesorter(); 
 
 		$(".datepicker").datepicker({
             autoclose: !0
