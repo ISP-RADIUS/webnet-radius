@@ -61,8 +61,11 @@ $route['account/(:any)/json'] = 'account/json/$1';
 $route['account/(:any)/settings'] = 'account/settings/$1';
 $route['account/(:any)/notifications'] = 'account/notifications/$1';
 $route['account/(:any)/notifications/(:any)'] = 'account/notifications/$1/$2';
-$route['account/(:any)/sessions'] = 'account/sessions/$1';
+$route['account/(:any)/payments'] = 'account/payments/$1';
+$route['account/(:any)/payments/(:any)'] = 'account/payments/$1/$2';
 
+
+$route['account/(:any)/sessions'] = 'account/sessions/$1';
 $route['account/(:any)/status'] = 'account/status/$1';
 
 

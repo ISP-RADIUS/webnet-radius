@@ -189,6 +189,57 @@ class Account extends CI_Controller {
 		$this->load->view('admin/layout', $data);
 	}
 
+	public function payments($username = NULL)
+	{
+
+		echo json_encode($this->accounts->expiring_in(2));
+		die();
+
+		$payments = $this->payment_m->get_many_by(array('username'=>$username));
+
+		$total_rows = $payments = $this->payment_m->get_many_by(array('username'=>$username));
+		$total_rows = count($total_rows);
+		
+		$per_page = 10;
+		$offset = $this->uri->segment(4);
+
+
+		$this->db->order_by('created_at','DESC');
+		$this->db->limit($per_page);
+		$this->db->offset($offset);
+		$payments = $this->payment_m->get_many_by(array('username'=>$username));
+
+		$this->load->library('pagination');
+		$config['base_url'] = base_url() . 'account/'.$username.'/payments';
+		$config['total_rows'] = $total_rows;
+		$config['per_page'] = $per_page;
+		$config['full_tag_open'] = '<div class="pagination">';
+		$config['full_tag_close'] = '</div>';
+		$config['last_link'] = ' First';
+		$config['last_link'] = ' Last';
+		$config['next_link'] = ' > ';
+		$config['prev_link'] = ' < ';
+		$this->pagination->initialize($config);
+		$page_nav = $this->pagination->create_links();
+
+		foreach ($payments as $payment):
+			$payment->sender = $this->admin_m->get($payment->created_by);
+		endforeach;
+
+		
+		$data = array(
+					'subview'	=>	'account/payments',
+					'account'	=>	$this->account,
+					'payments'	=>	$payments,
+					'page_nav'	=>	$page_nav,
+
+			);
+
+		
+
+		$this->load->view('admin/layout', $data);
+	}
+
 	
 
 	public function settings($username=NULL)

@@ -12,8 +12,10 @@ class Dashboard extends CI_Controller {
 
 	public function index()
 	{
+		$expiring_accounts =  $this->accounts->expiring_in(1);
 		$data = array(
 				'subview'	=>	'dashboard/index',
+				'expiring_accounts'	=>	$expiring_accounts,
 				'sidebar'	=>	FALSE,
 		);
 
@@ -21,6 +23,8 @@ class Dashboard extends CI_Controller {
 
 		$this->load->view('admin/layout', $data);
 	}
+
+	
 
 }
 

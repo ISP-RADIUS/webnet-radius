@@ -207,6 +207,16 @@ class Ajax extends CI_Controller {
 	        return $bytes;
 	}
 
+	public function expiring_in()
+	{
+		$days = $this->input->post('days');
+		$expiring_accounts = $this->accounts->expiring_in($days);
+		$data = array(
+				'expiring_accounts'	=>	$expiring_accounts,
+			);
+		$this->load->view('admin/dashboard/ajax_expiring_in', $data);
+	}
+
 
 
 

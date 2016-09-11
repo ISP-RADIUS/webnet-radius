@@ -3,6 +3,21 @@
 
 class Accounts {
 
+	protected $ci;
+
+	public function __construct()
+	{
+		//Load Dependencies
+		$this->ci =& get_instance();
+        
+		$this->ci->load->model('radacct_m');
+		$this->ci->load->model('account_m');
+		$this->ci->load->model('radreply_m');
+		$this->ci->load->model('user_m');
+		
+	}
+
+	
 
 
 	public function status($username = NULL)
@@ -23,14 +38,14 @@ class Accounts {
 	public function has_active_session($username = NULL)
 	{
 		if($username):
-			return $this->radacct_m->get_by(array('username'=>$username,'AcctStopTime'=>NULL));
+			return $this->ci->radacct_m->get_by(array('username'=>$username,'AcctStopTime'=>NULL));
 		endif;
 	}
 
 	public function is_expired($username = NULL)
 	{
 		if($username):
-			$account = $this->account_m->get_by(array('username'=>$username));
+			$account = $this->ci->account_m->get_by(array('username'=>$username));
 			if(isset($account)):
 				if (time() > strtotime($account->expiration_date)):
 					return TRUE;
@@ -43,10 +58,25 @@ class Accounts {
 		endif;
 	}
 
+	public function expiring_in($days = NULL)
+	{
+		if(!$days) $days = 1;
+		$this->ci->db->where("DATEDIFF(STR_TO_DATE(Value, '%d %M %Y'), NOW()) >= 0 AND DATEDIFF(STR_TO_DATE(Value, '%d %M %Y'), NOW()) <= '$days'");
+		$accounts = $this->ci->radcheck_m->get_many_by(array('Attribute'=>'Expiration'));
+		foreach ($accounts as $account) :
+			$account->user = $this->ci->user_m->get_by(array('username'=>$account->username));
+			$account->extended_days = $this->ci->account_m->get_by(array('username'=>$account->username))->extended_days;
+		endforeach;
+
+		return $accounts;
+	
+		
+	}
+
 	public function is_active($username = NULL)
 	{
 		if($username):
-			$account = $this->account_m->get_by(array('username'=>$username));
+			$account = $this->ci->account_m->get_by(array('username'=>$username));
 			if(isset($account)):
 				if (time() <= strtotime($account->expiration_date)):
 					return TRUE;
@@ -63,7 +93,7 @@ class Accounts {
 	public function speed($username = NULL)
 	{
 		if($username):
-			$speed =  $this->radreply_m->get_by(array('attribute'=>'Mikrotik-Rate-Limit', 'username'=>$username));
+			$speed =  $this->ci->radreply_m->get_by(array('attribute'=>'Mikrotik-Rate-Limit', 'username'=>$username));
 			switch ($speed->value) {
 				case '284k/284k':
 					return "256 kbps";
@@ -91,7 +121,7 @@ class Accounts {
 			// All sessions for this month
 			$this->db->order_by("AcctStopTime", "desc");
 			$this->db->limit('1');
-			return $this->radacct_m->get_by(array('username'=>$username));
+			return $this->ci->radacct_m->get_by(array('username'=>$username));
 		endif;
 		
 	}
