@@ -41,7 +41,6 @@
                         <option value="all">All</option>
                         <option value="expired">Expired</option>
                         <option value="online">Online</option>
-                        <option value="offline">Offline</option>
                         <option value="extended">Extended</option>
                     </select>
                 </form>
@@ -60,14 +59,16 @@
                             </tr>
                         </thead>
                         <tbody >
+
                             <?php
                                 if(!empty($accounts)):
                                 foreach ($accounts as $account):
+                                  
                             ?>
                                 <tr>
                                     <td><a href="<?php echo base_url(); ?>account/<?php echo $account->username; ?>">#<?php echo $account->username; ?></a></td>
                                     <td></td>
-                                    <td><a href="#">Sylvia Stingray</a></td>
+                                    <td><a href="#"><?php echo $account->user->first_name . " " .$account->user->last_name; ?></a></td>
                                     <td>
                                         <span class="label <?php echo $account->status; ?>"><?php echo $account->status; ?></span>
                                     </td>

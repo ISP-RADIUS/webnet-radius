@@ -105,7 +105,7 @@ class Ajax extends CI_Controller {
 	public function accounts()
 	{
 		$status = $this->input->post('status');
-		// $status = 'extended';
+		// $status = 'offline';
 		switch ($status) {
 			case 'all':
 				$accounts = $this->account_m->get_all();
@@ -127,6 +127,7 @@ class Ajax extends CI_Controller {
 				
 				
 				break;
+
 			
 			default:
 						$accounts = $this->account_m->get_all();
@@ -151,15 +152,16 @@ class Ajax extends CI_Controller {
 		$till = $this->input->post('end');
 		$username = $this->input->post('username');
 
-		$from = date("Y-m-d", strtotime($from));
-		$till = date("Y-m-d", strtotime($till));
+		$from = date("Y-m-d 00:00:00", strtotime($from));
+		$till = date("Y-m-d 23:59:59", strtotime($till));
 
 		if(empty($from) && empty($till)){
-			$from = date('Y-m-1');
-			$till = date('Y-m-t');
+			$from = date('Y-m-1 00:00:00');
+			$till = date('Y-m-t 23:59:59');
 		}
 
 
+		echo $from . " " . $till;
 		
 
 		

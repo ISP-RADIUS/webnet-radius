@@ -50,5 +50,26 @@ if(($menu=="accounts" || $menu == "account") && isset($account)):
 
 
 <?php
-	endif;
+    elseif($menu=="ticket" || $menu == "tickets"):
+
+?>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+    <ul class="nav nav-stacked">
+
+       
+        <li ><a href="<?php echo base_url(); ?>billing/"> <i class="fa fa-tachometer fa-fw"></i> <span class="item-label">Dashboard</span></a></li>
+        <li ><a href="<?php echo base_url(); ?>billing/"> <i class="fa fa-plus fa-fw"></i> <span class="item-label">New Ticket</span></a></li>
+        <li ><a href="<?php echo base_url(); ?>billing/"> <i class="fa fa-th-list fa-fw"></i> <span class="item-label">View All</span></a></li>
+        
+       
+    </ul>
+</aside>
+<!-- END: SIDEBAR -->
+
+
+
+<?php
+    endif;
 ?>

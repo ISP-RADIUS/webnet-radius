@@ -7,6 +7,13 @@
 ?>
 
 <?php 
+	$segment =  $this->uri->segment(1);
+    if($segment == 'ticket')
+    $this->load->view('admin/ticket/top_ticket_info'); 
+?>
+
+
+<?php 
 	$this->load->view('admin/include/side_nav'); 
 ?>
 

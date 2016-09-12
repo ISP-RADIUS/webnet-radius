@@ -82,6 +82,12 @@
                             Support
                         </a>
                     </li>
+
+                    <li class="">
+                        <a href="<?php echo base_url(); ?>ticket" class="" data-toggle="collapse" data-target=".sidebar">
+                            Ticket
+                        </a>
+                    </li>
                    
                 </ul>
 
