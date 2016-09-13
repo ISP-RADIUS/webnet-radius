@@ -24,6 +24,8 @@ class Slack extends CI_Controller {
 
 	public function account()
 	{
+
+		
 		$username = $this->input->post('text');
 
 		// $username = "test";
