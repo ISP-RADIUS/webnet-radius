@@ -24,7 +24,18 @@ class Slack extends CI_Controller {
 
 	public function account()
 	{
-		var_dump($_POST);
+		$username = $this->input->post('text');
+
+		if($username):
+			$account = $this->account_m->gt_by(array('username'=>$username));
+			if($account):
+				echo json_encode($account);
+			else:
+				echo "The user is invalid";
+			endif;
+		else:
+			echo "You need to select a user";
+		endif;
 	}
 
 }
