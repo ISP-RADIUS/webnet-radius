@@ -31,7 +31,7 @@ class Slack extends CI_Controller {
 			if($account):
 				echo json_encode($account);
 			else:
-				echo '{ "text: : "Invalid User" }'
+				echo '{ "text: : "Invalid User" }';
 			endif;
 		else:
 			echo '{ "text: : "You need to select a user" }';
