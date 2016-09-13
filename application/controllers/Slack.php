@@ -99,12 +99,12 @@ class Slack extends CI_Controller {
 
 			else:
 				$text = array(
-						"text" => 'Invalid User',
+						"text" => 'No user with that username. Try again.',
 					);
 			endif;
 		else:
 			$text = array(
-					"text" => 'You need to select a user',
+					"text" => 'You need to select a user. type " /account username ." eg: /account test',
 				);
 			
 		endif;
