@@ -22,6 +22,11 @@ class Slack extends CI_Controller {
 		echo json_encode($text);
 	}
 
+	public function account()
+	{
+		var_dump($_POST);
+	}
+
 }
 
 /* End of file Slack.php */
