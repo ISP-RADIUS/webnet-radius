@@ -26,7 +26,7 @@ class Slack extends CI_Controller {
 	{
 		$username = $this->input->post('text');
 
-		// $username = "test";
+		$username = "test";
 
 		if($username):
 			$account = $this->account_m->get_by(array('username'=>$username));
@@ -34,7 +34,38 @@ class Slack extends CI_Controller {
 				$account->active_until = $this->radcheck_m->get_by(array('attribute'=>'Expiration','username'=>$account->username))->value;
 
 				$text = array(
-						"text" => 'Active Unil: ' . $account->active_until,
+						"text" => "Details for *". $account->username . "*",
+						"attachments" => [
+										array(
+											"fields"=>[
+												array(
+													"title" => "Username",
+													"value" => $account->username,
+	                    							"short" => TRUE
+												),
+												array(
+													"title" => "Expiration",
+													"value" => $account->expiration_date,
+	                    							"short" => TRUE
+												),
+												array(
+													"title" => "Active Until",
+													"value" => $account->active_until,
+	                    							"short" => TRUE
+												),
+												array(
+													"title" => "Extended",
+													"value" => $account->extended_days . " days",
+	                    							"short" => TRUE
+												),
+
+
+												],
+										),
+
+										
+											
+							],
 					);
 
 			else:
@@ -48,6 +79,8 @@ class Slack extends CI_Controller {
 				);
 			
 		endif;
+
+		// $text = [ "item" =>  ["id", "123456", "name", "adam"]  ];
 
 		$this->output
         ->set_content_type('application/json')
