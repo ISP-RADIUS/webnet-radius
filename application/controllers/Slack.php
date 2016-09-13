@@ -32,11 +32,33 @@ class Slack extends CI_Controller {
 			$account = $this->account_m->get_by(array('username'=>$username));
 			if($account):
 				$account->active_until = $this->radcheck_m->get_by(array('attribute'=>'Expiration','username'=>$account->username))->value;
+				switch ($this->accounts->status($account->username)) {
+					case 'online':
+						$color = "#84ce84";
+						break;
+
+					case 'expired':
+						$color = "#d97572";
+						break;
+
+					case 'extended':
+						$color = "#e8b976";
+						break;
+
+					case 'offline':
+						$color = "#d6d6d6";
+						break;
+					
+					default:
+						# code...
+						break;
+				}
 
 				$text = array(
 						"text" => "Details for *". $account->username . "*",
 						"attachments" => [
 										array(
+											"color"=> $color,
 											"fields"=>[
 												array(
 													"title" => "Username",
@@ -58,6 +80,13 @@ class Slack extends CI_Controller {
 													"value" => $account->extended_days . " days",
 	                    							"short" => TRUE
 												),
+
+												array(
+													"title" => "Status",
+													"value" => $this->accounts->status($account->username),
+	                    							"short" => TRUE
+												),
+												
 
 
 												],
