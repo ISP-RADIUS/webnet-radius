@@ -12,7 +12,14 @@ class Slack extends CI_Controller {
 	{
 		$accounts = $this->account_m->get_all();
 
-		echo json_encode($accounts);
+		$text = "";
+		foreach ($accounts as $account):
+			$text .= $account->username . "\n";
+		endforeach;
+
+		
+
+		echo json_encode($text);
 	}
 
 }
