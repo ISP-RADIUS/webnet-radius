@@ -26,7 +26,6 @@ class Slack extends CI_Controller {
 	{
 		$username = $this->input->post('text');
 
-		$username = "test";
 
 		if($username):
 			$account = $this->account_m->get_by(array('username'=>$username));
@@ -48,7 +47,7 @@ class Slack extends CI_Controller {
 				);
 			
 		endif;
-		echo json_encode($text);
+		return json_encode($text);
 	}
 
 }
