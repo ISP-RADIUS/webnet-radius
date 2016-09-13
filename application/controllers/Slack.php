@@ -26,6 +26,7 @@ class Slack extends CI_Controller {
 	{
 		$username = $this->input->post('text');
 
+		// $username = "test";
 
 		if($username):
 			$account = $this->account_m->get_by(array('username'=>$username));
@@ -33,21 +34,21 @@ class Slack extends CI_Controller {
 				$account->active_until = $this->radcheck_m->get_by(array('attribute'=>'Expiration','username'=>$account->username))->value;
 
 				$text = array(
-						'text' => 'Active Unil: ' . $account->active_until,
+						"text" => 'Active Unil: ' . $account->active_until,
 					);
 
 			else:
 				$text = array(
-						'text' => 'Invalid User',
+						"text" => 'Invalid User',
 					);
 			endif;
 		else:
 			$text = array(
-					'text' => 'You need to select a user',
+					"text" => 'You need to select a user',
 				);
 			
 		endif;
-		return json_encode($text);
+		echo json_encode($text);
 	}
 
 }
