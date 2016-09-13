@@ -26,7 +26,7 @@ class Slack extends CI_Controller {
 	{
 		$username = $this->input->post('text');
 
-		$username = "test";
+		// $username = "test";
 
 		if($username):
 			$account = $this->account_m->get_by(array('username'=>$username));
