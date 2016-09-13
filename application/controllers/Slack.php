@@ -48,6 +48,39 @@ class Slack extends CI_Controller {
 				);
 			
 		endif;
+
+		$text = '{
+				    "text": "Details about ramkpl",
+				    "attachments": [
+				      
+				        {
+				            "fields": [
+				                {
+				                    "title": "Username",
+				                    "value": "ramkpl",
+				                    "short": true
+				                },
+				                {
+				                    "title": "Expiration",
+				                    "value": "12 Aug 2015",
+				                    "short": true
+				                },
+								 {
+				                    "title": "Active Until",
+				                    "value": "16 Aug 2015",
+				                    "short": true
+				                },
+								 {
+				                    "title": "Extended",
+				                    "value": "3 Days",
+				                    "short": true
+				                }
+				            ]
+				      
+				        
+				        }
+				    ]
+				}';
 		echo json_encode($text);
 	}
 
