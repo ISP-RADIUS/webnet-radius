@@ -57,26 +57,31 @@ class Account extends CI_Controller {
 	{
 
 		
+
+		
 		if($username):
 			$account = $this->account_m->get_by(array('username'=>$username));
-			if(isset($account)):
+			
+
+			if($account):
 				$account->user = $this->user_m->get_by(array('username'=>$username));
-			endif;
-			$account->status = $this->status($username);
+				$account->status = $this->status($username);
 
 
+				$data = array(
+						'subview'	=>	'account/dashboard',
+						'account'	=>	$this->account,
+				);
 
 			
 
-			$data = array(
-					'subview'	=>	'account/dashboard',
-					'account'	=>	$this->account,
-			);
+				// echo json_encode($this->account);
+				$this->load->view('admin/layout', $data);
 
-		
+			endif;
 
-			// echo json_encode($this->account);
-			$this->load->view('admin/layout', $data);
+
+			
 
 		else:
 			/*
@@ -262,7 +267,7 @@ class Account extends CI_Controller {
 	{
 		if($username):
 			if($this->is_expired($username)):
-				if($this->is_extended($username)):
+				if($this->is_extended($username) && $this->has_active_session($username)):
 					return "extended";
 				else:
 					return "expired";
@@ -469,6 +474,24 @@ class Account extends CI_Controller {
 
 
 	        return $bytes;
+	}
+
+
+	public function ping()
+	{
+		$t = $this->load->library('ping', array('host'=>'103.1.92.82'));
+		// $host = 'www.example.com';
+	
+		$this->ping->setHost('www.google.com');
+		$latency = $this->ping->ping();
+		if ($latency !== false) {
+		  print 'Latency is ' . $latency . ' ms';
+		}
+		else {
+		  print 'Host could not be reached.';
+		}
+
+
 	}
 
 

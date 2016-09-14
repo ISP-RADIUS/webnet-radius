@@ -40,7 +40,8 @@
                     <div class="tech-info">
                         <div class="info-box"><strong>Public IP:</strong> <?php echo $account->public_ip; ?></div>
                         <div class="info-box"><strong>Device MAC:</strong> <?php echo $account->mac_address; ?></div>
-                        <div class="info-box"><strong>Device IP:</strong> <a  target="_blank" href="https://<?php echo $account->client_ip; ?>"><?php echo $account->client_ip; ?> <i class="fa fa-external-link"></i> </a></div>
+                        <div class="info-box"><strong>Online IP:</strong> <a  target="_blank" href="https://<?php echo $account->client_ip; ?>"><?php echo $account->client_ip; ?> <i class="fa fa-external-link"></i> </a></div>
+                        <div class="info-box"><strong>Device IP:</strong> <a  target="_blank" href=""> <i class="fa fa-external-link"></i> </a></div>
                     </div>
 
                 </div>
