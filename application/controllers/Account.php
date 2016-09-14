@@ -267,12 +267,9 @@ class Account extends CI_Controller {
 	{
 		if($username):
 			if($this->is_expired($username)):
-				if($this->is_extended($username) && $this->has_active_session($username)):
-					return "extended";
-				else:
 					return "expired";
-				endif;
-
+			elseif ($this->is_extended($username) && $this->has_active_session($username)) :
+					return "extended";
 			elseif($this->has_active_session($username)):
 				return "online";
 			else:
