@@ -12,16 +12,16 @@ if(($menu=="accounts" || $menu == "account") && isset($account)):
 <aside class="sidebar">
     <ul class="nav nav-stacked">
 
-        <li <?php if($active == 'dashboard') echo $active_class; ?> ><a href="<?php echo base_url(); ?>account/<?php echo $account->username; ?>"> <i class="fa fa-dashboard fa-fw"> </i> <span class="item-label">Dashboard</span></a></li>
-        <li <?php if($active == 'user_details') echo $active_class; ?> ><a href="<?php echo base_url(); ?>account/<?php echo $account->username; ?>/user_details"> <i class="fa fa-user fa-fw"> </i> <span class="item-label">User Details</span></a></li>
-        <li <?php if($active == 'sessions') echo $active_class; ?> ><a href="<?php echo base_url(); ?>account/<?php echo $account->username; ?>/sessions"> <i class="fa fa-database fa-fw"> </i> <span class="item-label">Sessions</span></a></li>
-        <li <?php if($active == 'payments') echo $active_class; ?> ><a href="<?php echo base_url(); ?>account/<?php echo $account->username; ?>/payments"> <i class="fa fa-inr fa-fw"> </i> <span class="item-label">Payments</span></a></li>
-        <li <?php if($active == 'notifications') echo $active_class; ?> ><a href="<?php echo base_url(); ?>account/<?php echo $account->username; ?>/notifications"> <i class="fa fa-bell fa-fw"> </i> <span class="item-label">Notifications</span></a></li>
+        <li <?php if($active == 'dashboard') echo $active_class; ?> ><a href="<?php echo base_url(); ?>account/<?php echo $account->username; ?>"> <span class="item-label">Dashboard</span></a></li>
+        <li <?php if($active == 'user_details') echo $active_class; ?> ><a href="<?php echo base_url(); ?>account/<?php echo $account->username; ?>/user_details"> <span class="item-label">User Details</span></a></li>
+        <li <?php if($active == 'sessions') echo $active_class; ?> ><a href="<?php echo base_url(); ?>account/<?php echo $account->username; ?>/sessions">  <span class="item-label">Sessions</span></a></li>
+        <li <?php if($active == 'payments') echo $active_class; ?> ><a href="<?php echo base_url(); ?>account/<?php echo $account->username; ?>/payments"> <span class="item-label">Payments</span></a></li>
+        <li <?php if($active == 'notifications') echo $active_class; ?> ><a href="<?php echo base_url(); ?>account/<?php echo $account->username; ?>/notifications"> <span class="item-label">Notifications</span></a></li>
         
 
-        <li <?php if($active == 'settings') echo $active_class; ?> ><a href="<?php echo base_url(); ?>account/<?php echo $account->username; ?>/settings"> <i class="fa fa-cogs fa-fw"></i> <span class="item-label">Settings</span></a></li>
+        <li <?php if($active == 'settings') echo $active_class; ?> ><a href="<?php echo base_url(); ?>account/<?php echo $account->username; ?>/settings"> <span class="item-label">Settings</span></a></li>
 
-        <li <?php if($active == 'json') echo $active_class; ?> ><a href="<?php echo base_url(); ?>account/<?php echo $account->username; ?>/json"> <i class="fa fa-cogs fa-fw"></i> <span class="item-label">JSON</span></a></li>
+        <li <?php if($active == 'json') echo $active_class; ?> ><a href="<?php echo base_url(); ?>account/<?php echo $account->username; ?>/json"> <span class="item-label">JSON</span></a></li>
         
        
     </ul>

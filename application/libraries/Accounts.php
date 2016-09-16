@@ -42,6 +42,24 @@ class Accounts {
 		endif;
 	}
 
+	public function is_online($username = NULL)
+	{
+		if($username):
+			if($this->get_active_session($username)):
+				return TRUE;
+			else:
+				return FALSE;
+			endif;
+		endif;
+	}
+
+	public function get_active_session($username = NULL)
+	{
+		if($username):
+			return $this->ci->radacct_m->get_by(array('username'=>$username,'AcctStopTime'=>NULL));
+		endif;
+	}
+
 	public function is_expired($username = NULL)
 	{
 		if($username):
@@ -53,8 +71,6 @@ class Accounts {
 					return FALSE;
 				endif;
 			endif;
-
-			
 		endif;
 	}
 
