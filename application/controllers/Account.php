@@ -239,17 +239,30 @@ class Account extends CI_Controller {
 		endif;
 
 		// if more than one user are found, show the list of users
-		echo "<pre>";
 		
 		foreach ($users as $user):
 			$accounts[] = $this->account_m->get_by(array('username'=>$user->username));
 		endforeach;
 
-		$accounts = (object) $accounts;
-		foreach ($accounts as $account) {
-			$account->status = $this->accounts->status($account->username);
-			// var_dump($account); # code...
-		}
+
+		if(!empty($accounts)):
+			$accounts = (object) $accounts;
+			foreach ($accounts as $account) {
+				$account->status = $this->accounts->status($account->username);
+				$account->user = $this->user_m->get_by(array('username'=>$account->username));
+				// var_dump($account); # code...
+			}
+		else:
+
+			$accounts = $this->account_m->get_all();
+			foreach ($accounts as $account):
+				$account->user = $this->user_m->get_by(array('username'=>$account->username));
+				$account->status	=	$this->accounts->status($account->username);
+			endforeach;
+			
+		endif;
+
+
 		
 		$data = array(
 			'subview'=> 'account/all',

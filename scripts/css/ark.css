@@ -3167,3 +3167,11 @@ div#tooltip {
   display: inline-block;
   padding: 0px 15px 0px 0px;
 }
+
+.main-content h3{
+  margin-top: 0px;
+}
+
+table.small tr td{
+  padding: 3px !important;
+}

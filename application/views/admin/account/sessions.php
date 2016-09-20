@@ -23,7 +23,7 @@
 		        </div>
 
                 <div class="session_data">
-                    <table class="table table-striped table-hover">
+                    <table class="table table-striped table-hover small">
                         <thead>
                             <tr>
                                 <th>Date</th>
@@ -53,11 +53,7 @@
 
                 
 
-                <style type="text/css">
-                	table tr td{
-                		padding: 3px !important;
-                	}
-                </style>
+                
                
               
             </div>

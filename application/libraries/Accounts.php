@@ -135,8 +135,8 @@ class Accounts {
 	{
 		if($username):
 			// All sessions for this month
-			$this->db->order_by("AcctStopTime", "desc");
-			$this->db->limit('1');
+			$this->ci->db->order_by("AcctStopTime", "desc");
+			$this->ci->db->limit('1');
 			return $this->ci->radacct_m->get_by(array('username'=>$username));
 		endif;
 		

@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-md-12">
                 <h3>Notifications</h3>
-                <table class="table table-striped table-hover">
+                <table class="table table-striped table-hover small">
                     <thead>
                         <tr>
                             <th>Id</th>
