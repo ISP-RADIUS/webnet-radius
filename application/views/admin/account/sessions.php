@@ -23,7 +23,7 @@
 		        </div>
 
                 <div class="session_data">
-                    <table class="table table-striped table-hover small">
+                    <table class="table table-striped table-hover small session_data">
                         <thead>
                             <tr>
                                 <th>Date</th>
@@ -48,6 +48,11 @@
                             ?>
 
                         </tbody>
+                        <tr>
+                            <th></th>
+                            <th>Total Upload : <?php echo $totalUpload; ?> </th>
+                            <th>Total Download : <?php echo $totalDownload; ?> </th>
+                        </tr>
                     </table>
                 </div>
 

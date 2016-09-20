@@ -91,15 +91,23 @@ class Account extends CI_Controller {
 		$query = $this->db->query("SELECT MIN(RadAcctId) AS RadAcctId, DATE(AcctStartTime) AS 'date', username as 'username',  SUM(AcctInputOctets) AS upload, SUM(AcctOutputOctets) AS download FROM radacct WHERE username = '$username' AND AcctStartTime BETWEEN '$from' AND '$till'   GROUP BY DATE(AcctStartTime)");
 		$sessions = $query->result_object();
 
+		$totalDownload = 0;
+        $totalUpload = 0;
 		foreach ($sessions as $session) {
+			$totalDownload = $totalDownload + $session->download;
+			$totalUpload = $totalUpload + $session->upload;
 			$session->download = $this->formatSizeUnits($session->download);
 			$session->upload = $this->formatSizeUnits($session->upload);
+
+
 		}
 
 		$data = array(
 				'subview'	=>	'account/sessions',
 				'account'	=>	$this->account,
 				'sessions'	=>	$sessions,
+				'totalDownload'	=>	$this->formatSizeUnits($totalDownload),
+				'totalUpload'	=>	$this->formatSizeUnits($totalUpload)
 		);
 		$this->load->view('admin/layout', $data);
 	}
@@ -259,7 +267,7 @@ class Account extends CI_Controller {
 				$account->user = $this->user_m->get_by(array('username'=>$account->username));
 				$account->status	=	$this->accounts->status($account->username);
 			endforeach;
-			
+
 		endif;
 
 
