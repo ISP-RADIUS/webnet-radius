@@ -27,6 +27,13 @@ class Account extends CI_Controller {
 			if(!$this->account->session->current):
 				$this->account->session->last		=	$this->accounts->last_active_session($username);
 			endif;
+
+			$device = $this->device_m->get_by(array('username'=>$account->username));
+			if(!$device):
+				$this->account->device = NULL;
+			else:
+				$this->account->device = $device;
+			endif;
 		
 		else:
 			$this->account = "";

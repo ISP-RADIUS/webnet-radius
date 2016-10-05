@@ -2,8 +2,15 @@
 
 
 <?php 
-    if(isset($account))
-    $this->load->view('admin/include/user_account_info'); 
+    if(isset($account)):
+    	if(empty($account->device)):
+    		$this->load->view('admin/include/dynamic_form');
+    	endif;
+
+    	$this->load->view('admin/include/user_account_info'); 
+    endif;
+
+	
 ?>
 
 <?php 

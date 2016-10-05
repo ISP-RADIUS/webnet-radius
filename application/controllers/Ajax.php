@@ -80,6 +80,33 @@ class Ajax extends CI_Controller {
 		$this->changelog_m->insert($data);
 	}
 
+	public function change_ip()
+	{
+		$username = $this->input->post('username');
+		$ip = $this->input->post('ip');
+		$mac = $this->input->post('mac');
+
+		
+		$device = $this->device_m->get_by(array('username'=>$username));
+
+		if($device):
+
+	    	if($this->device_m->update($device->id, array('ip'=> $ip))):
+				echo TRUE;
+			else:
+				echo FALSE;
+			endif;
+		else:
+			if($this->device_m->insert(array('ip'=> $ip,'username'=>$username,'mac'=>$mac))):
+				echo TRUE;
+			else:
+				echo FALSE;
+			endif;
+		endif;
+
+
+	}
+
 	public function calculate_price()
 	{
 
