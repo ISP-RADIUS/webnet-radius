@@ -24,7 +24,7 @@ class Accounts {
 	{
 		if($username):
 			if($this->is_expired($username)):
-				if($this->has_active_session($username))
+				if($this->has_active_session($username)):
 					return "extended";
 				else:
 					return "expired";
