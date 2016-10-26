@@ -6,7 +6,8 @@
     <div class="main-content">
         <div class="row">
             <div class="col-md-12">
-                <h3>Payments</h3>
+                <h3 style="float: left;">Payments</h3>
+                <h3 style="float: right"> Balance : <i class="fa fa-inr"></i>24</h3>
                 <table class="table table-striped table-hover small">
                     <thead>
                         <tr>

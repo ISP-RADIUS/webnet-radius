@@ -19,10 +19,15 @@ class Dashboard extends CI_Controller {
 				'sidebar'	=>	FALSE,
 		);
 
-	
+
+
+		
+
 
 		$this->load->view('admin/layout', $data);
 	}
+
+	
 
 	
 

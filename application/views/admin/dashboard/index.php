@@ -1,7 +1,63 @@
-<section class="content bordered-all">
+<section class="content ">
 
     <!-- CONTENT -->
 <div class="main-content">
+
+    <div class="panel ">
+                   
+
+        <div class="panel-body">
+
+            <div class="col-lg-3">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        
+                        <h5>Account Status</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <h4 class="no-margins">sgs</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        
+                        <h5>Extended Days</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <h4 class="no-margins">sgfsd</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        
+                        <h5>Expiration</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <h4 class="no-margins">sdgds</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        
+                        <h5>Active Until</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <h4 class="no-margins">sdgsd</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+
 
     <div class="row">
 

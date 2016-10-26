@@ -22,6 +22,8 @@ class Account extends CI_Controller {
 			
 			$this->account->user 					= 	$this->user_m->get_by(array('username'=>$username));
 
+			$this->account->active_until			=	$this->radcheck_m->get_by(array('Attribute'=>'Expiration','username'=>$username))->value;
+
 			$this->account->session = (object)[];
 			$this->account->session->current		=	$this->accounts->has_active_session($username);
 			if(!$this->account->session->current):
@@ -216,7 +218,8 @@ class Account extends CI_Controller {
 
 	public function json($username = NULL)
 	{
-		echo json_encode($this->account);
+		echo "<pre>";
+		var_dump($this->account);
 	}
 
 
