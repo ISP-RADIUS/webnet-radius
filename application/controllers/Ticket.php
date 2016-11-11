@@ -29,6 +29,16 @@ class Ticket extends CI_Controller {
 	}
 
 
+	public function create()
+	{
+
+		$data = array(
+					'subview'	=>	'ticket/create',
+			);
+		$this->load->view('admin/layout', $data);
+	}
+
+
 
 
 

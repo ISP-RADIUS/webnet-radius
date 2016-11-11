@@ -60,8 +60,8 @@ if(($menu=="accounts" || $menu == "account") && isset($account)):
 
        
         <li ><a href="<?php echo base_url(); ?>billing/"> <i class="fa fa-tachometer fa-fw"></i> <span class="item-label">Dashboard</span></a></li>
-        <li ><a href="<?php echo base_url(); ?>billing/"> <i class="fa fa-plus fa-fw"></i> <span class="item-label">New Ticket</span></a></li>
-        <li ><a href="<?php echo base_url(); ?>billing/"> <i class="fa fa-th-list fa-fw"></i> <span class="item-label">View All</span></a></li>
+        <li ><a href="<?php echo base_url(); ?>ticket/create"> <i class="fa fa-plus fa-fw"></i> <span class="item-label">New Ticket</span></a></li>
+        <li ><a href="<?php echo base_url(); ?>ticket/"> <i class="fa fa-th-list fa-fw"></i> <span class="item-label">View All</span></a></li>
         
        
     </ul>
