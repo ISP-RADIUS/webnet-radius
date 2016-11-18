@@ -12,10 +12,10 @@
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
                         
-                        <h5>Account Status</h5>
+                        <h5>New Accounts</h5>
                     </div>
                     <div class="ibox-content">
-                        <h4 class="no-margins">sgs</h4>
+                        <h4 class="no-margins"><?php echo count($accounts['this_month']); ?></h4>
                     </div>
                 </div>
             </div>
@@ -24,10 +24,10 @@
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
                         
-                        <h5>Extended Days</h5>
+                        <h5>Online Accounts</h5>
                     </div>
                     <div class="ibox-content">
-                        <h4 class="no-margins">sgfsd</h4>
+                        <h4 class="no-margins"><?php echo count($accounts['online']); ?></h4>
                     </div>
                 </div>
             </div>
@@ -36,10 +36,10 @@
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
                         
-                        <h5>Expiration</h5>
+                        <h5>Expired Accounts</h5>
                     </div>
                     <div class="ibox-content">
-                        <h4 class="no-margins">sdgds</h4>
+                        <h4 class="no-margins"><?php echo count($accounts['expired']); ?></h4>
                     </div>
                 </div>
             </div>
@@ -48,10 +48,10 @@
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
                         
-                        <h5>Active Until</h5>
+                        <h5>Connection Pending</h5>
                     </div>
                     <div class="ibox-content">
-                        <h4 class="no-margins">sdgsd</h4>
+                        <h4 class="no-margins">N/A</h4>
                     </div>
                 </div>
             </div>
@@ -60,6 +60,21 @@
 
 
     <div class="row">
+
+        <div class="col-md-12">
+
+            <?php
+                $group = 'customer_service';
+                if ($this->ion_auth->in_group($group) || $this->ion_auth->is_admin()):
+               
+            ?>
+                <a class="btn btn-primary" href="<?php echo base_url(); ?>call/make?department=customer_service&purpose=expiration">Make a Call </a>
+            <?php
+                endif;
+
+            ?>
+            
+        </div>
 
     	<div class="col-md-6">
             <div class="panel">

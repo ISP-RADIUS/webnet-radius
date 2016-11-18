@@ -90,7 +90,13 @@ class Account extends CI_Controller {
 
 	public function user_details()
 	{
+		$data = array(
+					'subview'	=>	'account/user_details',
+					'account'	=>	$this->account,
+					'user'		=>	$this->account->user,
+			);
 
+		$this->load->view('admin/layout', $data);
 	}
 
 	public function sessions($username = NULL)

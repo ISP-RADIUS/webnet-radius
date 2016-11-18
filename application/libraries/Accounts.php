@@ -17,6 +17,43 @@ class Accounts {
 		
 	}
 
+	public function get($logic = NULL)
+	{
+		if($logic==NULL):
+			$accounts = $this->ci->account_m->get_all();
+			return $accounts;
+		else:
+			switch ($logic) {
+				case 'accounts created this month':
+					$this->ci->db->where('created_at BETWEEN "'. date('Y-m-01 00:00:00') .'" and "'. date('Y-m-t 23:59:59').'"');
+					$accounts = $this->ci->account_m->get_all();
+					return $accounts;
+						
+					break;
+
+				case 'online accounts':
+					$accounts = $this->ci->radacct_m->get_many_by(array('AcctStopTime'=>NULL));
+					return $accounts;
+						
+					break;
+
+				case 'expired accounts':
+					$this->ci->db->where("STR_TO_DATE(expiration_date, '%d %M %Y') <= NOW()");
+					$accounts = $this->ci->account_m->get_all();
+					return $accounts;
+						
+					break;
+				
+				default:
+					# code...
+					break;
+			}
+
+
+
+		endif;
+	}
+
 	
 
 

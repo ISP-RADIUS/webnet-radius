@@ -81,6 +81,9 @@ class Ion_auth
 		}
 
 		$this->ion_auth_model->trigger_events('library_constructor');
+
+		// 
+		$this->load->library('user_m');
 	}
 
 	/**
@@ -536,6 +539,18 @@ class Ion_auth
 		 * if all, true
 		 */
 		return $check_all;
+	}
+
+	public function get_level()
+	{
+		$user_id = $this->session->userdata('user_id');
+		if (!empty($user_id))
+		{
+			$user_level = $this->admin_m->get($user_id)->level;
+			return $user_level;
+		}
+		return null;
+
 	}
 
 }
