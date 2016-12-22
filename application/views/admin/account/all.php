@@ -61,6 +61,7 @@
                         <tbody >
 
                             <?php
+                                $count = 1;
                                 if(!empty($accounts)):
                                 foreach ($accounts as $account):
                                   
