@@ -50,6 +50,7 @@
                 <table class="table table-striped table-hover " >
                         <thead>
                             <tr>
+                                <th></th>
                                 <th>Username</th>
                                 <th>Created</th>
                                 <th>User</th>
@@ -62,10 +63,12 @@
 
                             <?php
                                 if(!empty($accounts)):
+                                $count = 1;
                                 foreach ($accounts as $account):
                                   
                             ?>
                                 <tr>
+                                    <td><?php echo $count; ?></td>
                                     <td><a href="<?php echo base_url(); ?>account/<?php echo $account->username; ?>">#<?php echo $account->username; ?></a></td>
                                     <td></td>
                                     <td><a href="#"><?php echo $account->user->first_name . " " .$account->user->last_name; ?></a></td>
@@ -79,6 +82,7 @@
                                     </td>
                                 </tr>
                             <?php
+                                ++$count;
                                 endforeach; 
                                 endif;
                             ?>
