@@ -71,7 +71,7 @@ class Account extends CI_Controller {
 			/*
 				List all users
 			*/
-			$query = $this->db->order_by('username', 'DESC');
+			$query = $this->db->order_by('username', 'ASC');
 			$accounts = $this->account_m->get_all();
 			foreach ($accounts as $account):
 				$account->user = $this->user_m->get_by(array('username'=>$account->username));
