@@ -69,7 +69,7 @@
                             ?>
                                 <tr>
                                     <td><?php echo $count; ?></td>
-                                    <td><a href="<?php echo base_url(); ?>account/<?php echo $account->username; ?>">#<?php echo $account->username; ?></a></td>
+                                    <td><a href="<?php echo base_url(); ?>account/<?php echo $account->username; ?>"><?php echo $account->username; ?></a></td>
                                     <td></td>
                                     <td><a href="#"><?php echo $account->user->first_name . " " .$account->user->last_name; ?></a></td>
                                     
