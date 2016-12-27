@@ -146,5 +146,6 @@ $autoload['model'] = array( 'radacct_m',
 							'notification_m',
 							'admin_m',
 							'ion_auth_model',
-							'device_m'
+							'device_m',
+							'extendlog_m'
 					);

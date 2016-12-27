@@ -8,6 +8,7 @@
     		
             <div class="col-md-12">
                 <h3>Sessions</h3>
+                <span class="small last_updated_password"> <span style="text-decoration: underline;"> <a href="#">View Detailed Sessions</a></span></span> 
 
                 <input type="hidden" class="username" value="<?php echo $account->username; ?>" name="">
 		        <div class="sample">
