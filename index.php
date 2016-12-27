@@ -60,7 +60,7 @@ switch(dirname( __FILE__ )){
 		define ('ENVIRONMENT', 'production');
 		break;
 	case '/var/www/html/new':
-		define ('ENVIRONMENT', 'development');
+		define ('ENVIRONMENT', 'testing');
 		break;
 	case 'C:\xampp\htdocs\webnet\webnet-radius\new':
 		define ('ENVIRONMENT', 'development');
