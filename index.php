@@ -56,10 +56,13 @@
 	// define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
 
 switch(dirname( __FILE__ )){
-	case '/var/www/html/new':
+	case '/var/www/html':
 		define ('ENVIRONMENT', 'production');
 		break;
-	case 'C:\xampp\htdocs\radius\new':
+	case '/var/www/html/new':
+		define ('ENVIRONMENT', 'development');
+		break;
+	case 'C:\xampp\htdocs\webnet\webnet-radius\new':
 		define ('ENVIRONMENT', 'development');
 		break;
 	case '/Applications/XAMPP/xamppfiles/htdocs/webnet/webnet-radius':
