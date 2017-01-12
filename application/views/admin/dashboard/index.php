@@ -1,6 +1,13 @@
 <section class="content ">
 
     <!-- CONTENT -->
+
+<div class="row">
+
+    <!-- Dynamic form parts -->
+    <?php $this->load->view('admin/dashboard/dashboard_dynamic_form'); ?>
+</div>
+
 <div class="main-content">
 
     <div class="panel ">
