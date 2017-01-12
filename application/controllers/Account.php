@@ -326,7 +326,7 @@ class Account extends CI_Controller {
 		foreach ($activeRadAcctSesstions as $activeRadAcctSesstion):
 			$radacctData = array('AcctStopTime'=> date("Y-m-d H:i:s"));
 			$this->db->where('RadAcctId', $activeRadAcctSesstion->RadAcctId);
-	        $this->db->update('radacct',$radacctData);
+	        $this->db->delete('radacct');
 
 		endforeach;
 
