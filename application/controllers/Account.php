@@ -316,6 +316,23 @@ class Account extends CI_Controller {
 
 	}
 
+	public function kill()
+	{
+
+		$activeRadAcctSesstions = $this->radacct_m->get_many_by(array('username'=>$this->account->username, 'AcctStopTime'=>NULL));
+
+		foreach ($activeRadAcctSesstions as $activeRadAcctSesstion):
+			$radacctData = array('AcctStopTime'=> date("Y-m-d H:i:s"));
+			$this->db->where('RadAcctId', $activeRadAcctSesstion->RadAcctId);
+	        $this->db->update('radacct',$radacctData);
+
+		endforeach;
+
+		
+		
+
+	}
+
 
 
 }
