@@ -66,7 +66,7 @@ $route['account/(:any)/payments'] = 'account/payments/$1';
 $route['account/(:any)/payments/(:any)'] = 'account/payments/$1/$2';
 
 $route['account/(:any)/kill'] = 'account/kill/$1';
-
+$route['account/(:any)/activesessions'] = 'account/activesessions/$1';
 
 
 $route['account/(:any)/sessions'] = 'account/sessions/$1';
