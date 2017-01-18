@@ -4,6 +4,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Dashboard extends CI_Controller {
 
 	
+	public function __construct()
+	{
+		parent::__construct();
+		//Load Dependencies
+
+		if (!$this->ion_auth->logged_in()) redirect('auth/login', 'refresh');
+
+	}
 
 
 
@@ -13,11 +21,7 @@ class Dashboard extends CI_Controller {
 	public function index()
 	{
 
-		$this->load->library('excel');
-		$sql = $this->account_m->get_all();
-		$this->excel->to_excel($sql, 'test'); 
-
-		die();
+		
 
 		$expiring_accounts =  $this->accounts->expiring_in(1);
 		$accounts = array(

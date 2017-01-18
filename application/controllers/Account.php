@@ -91,6 +91,8 @@ class Account extends CI_Controller {
 
 	public function user_details()
 	{
+
+		
 		$data = array(
 					'subview'	=>	'account/user_details',
 					'account'	=>	$this->account,
@@ -98,6 +100,72 @@ class Account extends CI_Controller {
 			);
 
 		$this->load->view('admin/layout', $data);
+
+	}
+
+	public function user_edit($option=NULL)
+	{
+
+		if(!empty($this->input->post())):
+
+			$username = $this->input->post('username');
+			$user = $this->user_m->get_by(array('username'=>$username));
+
+
+			$data = array(
+						'first_name'		=>		$this->input->post('first_name'),
+						'last_name'			=>		$this->input->post('last_name'),
+						'description'		=>		$this->input->post('description'),
+						'remarks'			=>		$this->input->post('remarks'),
+						'email'				=>		$this->input->post('email'),
+						'secondary_email'	=>		$this->input->post('secondary_email'),
+						'primary_phone'		=>		$this->input->post('primary_phone'),
+						'secondary_phone'	=>		$this->input->post('secondary_phone'),
+						'tertiary_phone'	=>		$this->input->post('tertiary_phone'),
+						'address'			=>		$this->input->post('address'),
+						'node'				=>		$this->input->post('node'),
+						'zone'				=>		$this->input->post('zone'),
+						'country'			=>		$this->input->post('country'),
+
+
+				);
+
+		
+
+			if($this->user_m->update($user->id, $data)):
+
+				$changeLog = array(
+						'changed_by'	=>	$this->session->userdata('user_id'),
+						'username'		=>	$username,
+						'attribute'		=>	'user_details',
+						'old_value'		=>	serialize($user),
+						'new_value'		=>	serialize((object) $data)
+					);
+				$this->changelog_m->insert($changeLog);
+
+
+				redirect(base_url().'account/'.$username.'/user_edit?status=success');
+			else:
+				redirect(base_url().'account/'.$username.'/user_edit?status=failed');
+			endif;
+
+			
+			
+
+		else:
+
+
+			// var_dump($this->account); die();
+			$data = array(
+					'subview'	=>	'account/user_edit',
+					'account'	=>	$this->account,
+			);
+
+			$this->load->view('admin/layout', $data);
+
+		endif;
+
+		
 	}
 
 	public function sessions($username = NULL)

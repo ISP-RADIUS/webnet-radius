@@ -162,6 +162,9 @@ class Ajax extends CI_Controller {
 				break;
 		}
 		foreach ($accounts as $account):
+			$account->user = $this->user_m->get_by(array('username'=>$account->username));
+			$account->balance = $this->account_m->get_by(array('username'=>$account->username))->balance;
+			$account->status = $this->accounts->status($account->username);
 		endforeach;
 
 		$data = array(

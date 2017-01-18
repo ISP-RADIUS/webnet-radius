@@ -43,7 +43,7 @@
                 </tbody>
               </table>
               
-              <a href="#" class="btn btn-primary">Edit Details</a>
+              <a href="<?php echo base_url(); ?>account/<?php echo $account->username; ?>/user_edit" class="btn btn-primary">Edit Details</a>
             </div>
 
             <div class=" col-md-6 6"> 

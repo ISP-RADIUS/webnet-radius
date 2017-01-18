@@ -74,7 +74,7 @@
                                     <td>
                                         <span class="label <?php echo $account->status; ?>"><?php echo $account->status; ?></span>
                                     </td>
-                                    <td>$2,643.00</td>
+                                    <td> <i class="fa fa-rupee"></i> <?php echo $account->balance; ?></td>
                                     <td>
                                         <a href="#">Edit</a>
                                         <a href="#">Delete</a>
