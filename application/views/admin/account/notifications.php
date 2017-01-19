@@ -26,9 +26,19 @@
                             <td><a href="#">#<?php echo $notification->id; ?></a></td>
                             <td> <?php echo $notification->created_at; ?></td>    
                             <td><?php echo $notification->type; ?></td>
-                            <td style="width:50%;"> <span class="more"><?php echo $notification->text; ?></span></td>
+                            <td style="width:50%;"><?php echo substr($notification->text,0,70); ?> <a href="<?php echo base_url(); ?>account/<?php echo $account->username; ?>/notification/<?php echo $notification->id; ?>">...</a> </td>
                             <td>
-                                <span class="label label-success"><?php echo "delivered" ?></span>
+                                <?php
+                                    if($notification->status==1):
+                                ?>
+                                    <span class="label label-success"><?php echo "delivered" ?></span>
+                                <?php
+                                    else:
+                                ?>
+                                    <span class="label label-danger"><?php echo "Failed" ?></span>
+                                <?php
+                                    endif;
+                                ?>
                             </td>
                             <td><?php echo $notification->sender->first_name; ?></td>
                             

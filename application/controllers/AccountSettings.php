@@ -117,6 +117,12 @@ class AccountSettings extends CI_Controller {
 		endif;
 	}
 
+
+	public function test()
+	{
+
+		echo "sgs";
+	}
 }
 
 /* End of file AccountSettings.php */
