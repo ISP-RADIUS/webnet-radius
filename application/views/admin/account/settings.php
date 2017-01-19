@@ -26,7 +26,7 @@
                                         </div>
 
                                         <div class="panel-body">
-                                            <form class="form-horizontal" role="form" method="POST" action="<?php echo base_url(); ?>accountsettings/extend">
+                                            <form class="form-horizontal" role="form" method="POST" action="<?php echo base_url(); ?>AccountSettings/extend">
                                                 <div class="form-group">
                                                     <label for="inputEmail3" class="col-sm-2 col-md-2 control-label"> Days</label>
                                                     <div class="col-sm-6 col-md-3">
@@ -72,7 +72,7 @@
                                         </div>
 
                                         <div class="panel-body">
-                                            <form class="form-horizontal" role="form" method="POST" action="<?php echo base_url(); ?>accountsettings/change_ip">
+                                            <form class="form-horizontal" role="form" method="POST" action="<?php echo base_url(); ?>AccountSettings/change_ip">
                                                 <div class="form-group">
                                                     <label for="inputEmail3" class="col-sm-2  control-label"> Device IP</label>
                                                     <div class="col-sm-6 ">
