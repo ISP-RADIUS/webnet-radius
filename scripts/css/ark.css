@@ -3137,12 +3137,14 @@ div#tooltip {
   /* width and height can be anything, as long as they're equal */
 }
 
-.online{
+
+
+.online, .connected{
   background-color: #84ce84;
   color: #FFF;
 }
 
-.expired{
+.expired, .disconnected{
   background-color: #d97572;
   color: #FFF;
 }
@@ -3178,3 +3180,13 @@ table.small tr td{
 
 
 
+.device-status-rectangle {
+  width: 30px;
+  height: 20px;
+  border: 2px solid #FFF;
+  /* width and height can be anything, as long as they're equal */
+}
+
+#ttl{
+  padding:3px;
+}

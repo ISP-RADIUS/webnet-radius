@@ -1,3 +1,4 @@
+
 <div class="container">
                     <div class="user-avatar">
                         <img alt="" src="<?php echo base_url(); ?>img/users/blank.jpg" class="img-circle avatar" style="width:70px;">
@@ -45,11 +46,88 @@
                         <?php
                             if(empty($account->device)):
                                 $ip = "Setup IP";
+                                $text = base_url() ."account/".$account->username."/settings#device_ip";
                             else:
                                 $ip = $account->device->ip;
+                                $text = "https://".$ip;
                             endif;
                         ?>
-                        <div class="info-box"><strong>Device IP:</strong> <a  target="_blank" href="<?php echo "https://".$ip; ?>"> <i class="fa fa-external-link"></i> <?php echo $ip; ?> </div>
+                        <div class="info-box">
+                            <i class="icon-spinner icon-spin icon-large"> </i>
+                            <strong>Device IP:</strong> 
+                                <a  target="_blank" href="<?php echo $text; ?>"> <i class="fa fa-external-link"></i> <?php echo $ip; ?> </a> <span class="device-status-rectangle " id="tt"> <span id="ttl" class="small"></span> </span>  </div>
                     </div>
 
                 </div>
+
+
+
+
+
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script type="text/javascript">
+    function test(host) {
+        // Fork it
+        var request;
+        // fire off the request to /form.php
+        request = $.ajax({
+            url: "<?php echo base_url(); ?>monitor/device_ip",
+            type: "get",
+            data: {
+                host: host
+            },
+            beforeSend: function () {
+                $('#tt').children().children().css({'visibility': 'visible'});
+            }
+        });
+        // callback handler that will be called on success
+
+       
+        request.done(function (response, textStatus, jqXHR) {
+
+
+            var response = jQuery.parseJSON(response)
+            console.log(response);
+            var status = response.status;
+            var statusClass;
+            if (status) {
+                statusClass = 'connected';
+                $('#ttl').text(response.ttl);
+            } else {
+                statusClass = 'disconnected';
+                $('#ttl').text('failure');
+            }
+            $('#tt').removeClass('connected disconnected').addClass(statusClass);
+        });
+
+
+
+
+        // callback handler that will be called on failure
+        request.fail(function (jqXHR, textStatus, errorThrown) {
+            // log the error to the console
+            console.error(
+                "The following error occured: " +
+                    textStatus, errorThrown
+            );
+        });
+        // request.always(function () {
+        //     $('#tt').css({'visibility': 'hidden'});
+        // })
+    }
+    $(document).ready(function () {
+        var server = '<?php echo $ip; ?>';
+        test(server);
+        (function loop(server) {
+            setTimeout(function () {
+                test(server);
+                loop(server);
+            }, 6000);
+        })(server);
+    });
+</script>
+
+
