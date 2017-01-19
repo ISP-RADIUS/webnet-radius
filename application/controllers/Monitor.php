@@ -47,8 +47,8 @@ class Monitor extends CI_Controller {
 	{
 		
 
-		// $host = $this->input->get('host');
-		$host = "dshgadfhasdhas.com";
+		$host = $this->input->get('host');
+		// $host = "dshgadfhasdhas.com";
 		$response = $this->ping($host, 80, 10);  
 
 		echo json_encode($response);
